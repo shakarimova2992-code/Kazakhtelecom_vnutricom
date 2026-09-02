@@ -90,13 +90,7 @@ p { margin: 0 0 1em; }
   border: none;
   flex-shrink: 0;
 }
-.brand-logo {
-  width: 150px;
-  height: 54px;
-  object-fit: contain;
-  object-position: center;
-  display: block;
-}
+.brand-logo { height: 34px; width: auto; display: block; }
 .brand-divider { width: 1px; height: 24px; background: var(--gray-border); }
 .brand-name {
   font-family: var(--font-display);
@@ -243,175 +237,7 @@ main#app { max-width: 1140px; margin: 0 auto; padding: 0 24px; min-height: 60vh;
 .signal-art .ring-3 { stroke-opacity: 0.45; stroke-width: 2; }
 .signal-art .ring-core { fill: var(--blue); }
 .signal-art .nodes circle { fill: var(--navy); }
-/* =========================================
-   АНИМАЦИЯ СИГНАЛА / ТОЧЕК
-   ========================================= */
 
-/* Все элементы SVG остаются внутри своего пространства */
-.signal-art {
-  overflow: visible;
-}
-
-/* -----------------------------------------
-   Орбиты
-   ----------------------------------------- */
-
-.signal-art .ring {
-  transform-box: fill-box;
-  transform-origin: center;
-}
-
-
-/* Внешнее кольцо — едва заметное движение */
-.signal-art .ring-1 {
-  animation: ringBreath 6s ease-in-out infinite;
-}
-
-/* Среднее кольцо */
-.signal-art .ring-2 {
-  animation: ringBreath 5s ease-in-out infinite 0.4s;
-}
-
-/* Внутреннее кольцо */
-.signal-art .ring-3 {
-  animation: ringBreath 4s ease-in-out infinite 0.8s;
-}
-
-
-/* -----------------------------------------
-   Центральная точка
-   ----------------------------------------- */
-
-.signal-art .ring-core {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: corePulse 3s ease-in-out infinite;
-}
-
-
-/* Световая волна вокруг центральной точки */
-.signal-art .ring-core {
-  filter: drop-shadow(0 0 0 rgba(15, 98, 181, 0));
-}
-
-
-/* -----------------------------------------
-   Группа точек
-   ----------------------------------------- */
-
-/*
-   Вся группа медленно вращается.
-   За счёт этого точки движутся по орбите,
-   но сами круги остаются неподвижными.
-*/
-
-.signal-art .nodes {
-  transform-box: view-box;
-  transform-origin: 160px 160px;
-  animation: nodesRotate 24s linear infinite;
-}
-
-
-/* -----------------------------------------
-   Отдельные точки
-   ----------------------------------------- */
-
-.signal-art .nodes circle {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: nodePulse 3.6s ease-in-out infinite;
-}
-
-/* Разные задержки создают естественное движение */
-
-.signal-art .nodes circle:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.signal-art .nodes circle:nth-child(2) {
-  animation-delay: 0.45s;
-}
-
-.signal-art .nodes circle:nth-child(3) {
-  animation-delay: 0.9s;
-}
-
-.signal-art .nodes circle:nth-child(4) {
-  animation-delay: 1.35s;
-}
-
-.signal-art .nodes circle:nth-child(5) {
-  animation-delay: 1.8s;
-}
-
-.signal-art .nodes circle:nth-child(6) {
-  animation-delay: 2.25s;
-}
-
-
-/* -----------------------------------------
-   KEYFRAMES
-   ----------------------------------------- */
-
-/* Очень лёгкое "дыхание" колец */
-
-@keyframes ringBreath {
-
-  0%,
-  100% {
-    opacity: 0.8;
-  }
-
-  50% {
-    opacity: 1;
-  }
-}
-
-
-/* Пульсация центра */
-
-@keyframes corePulse {
-
-  0%,
-  100% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.16);
-  }
-}
-
-
-/* Медленное вращение точек */
-
-@keyframes nodesRotate {
-
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-
-/* Пульсация отдельных точек */
-
-@keyframes nodePulse {
-
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 0.9;
-  }
-
-  50% {
-    transform: scale(1.22);
-    opacity: 1;
-  }
-}
 @media (max-width: 860px) {
   .hero { flex-direction: column; text-align: center; padding-top: 40px; }
   .hero-body { max-width: none; }
@@ -638,6 +464,9 @@ main#app { max-width: 1140px; margin: 0 auto; padding: 0 24px; min-height: 60vh;
 .mod-detail-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 32px; margin-top: 16px; }
 @media (max-width: 860px) { .mod-detail-grid { grid-template-columns: 1fr; } }
 .ai-note { font-size: 0.85rem; color: var(--muted); margin: 10px 0 18px; }
+.ai-source-note { font-size: 0.85rem; font-weight: 600; margin: -6px 0 18px; padding: 8px 12px; border-radius: var(--radius-sm); }
+.ai-source-ok { background: #E3F6EC; color: var(--green); }
+.ai-source-warn { background: #FDF1DA; color: #9A6B0A; }
 
 /* -------------------------------- Footer -------------------------------- */
 .site-footer {
