@@ -90,7 +90,13 @@ p { margin: 0 0 1em; }
   border: none;
   flex-shrink: 0;
 }
-.brand-logo { height: 34px; width: auto; display: block; }
+.brand-logo {
+  width: 150px;
+  height: 54px;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
 .brand-divider { width: 1px; height: 24px; background: var(--gray-border); }
 .brand-name {
   font-family: var(--font-display);
